@@ -6,6 +6,12 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-  	erb :index
+  	return erb :index
+  end
+  
+  post '/' do 
+    @the_fortune=get_fortune 
+    @the_user=programs=params[:user]
+    return erb :results 
   end
 end
